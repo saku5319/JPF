@@ -230,6 +230,44 @@ div.padding0 {
 .large-screen .sh {display: none;}
 .large-screen .pc {display: block;}
 /*上記はサイトの基礎。下から中身*/
+/*斜めセクション*/
+/*背景
+---------------------------------------------------------------------------*/
+.background6-parts {
+	position: relative;
+	background: #eee;	/*背景色*/
+	color: #555;		/*文字色*/
+	padding-top: 5vw;		/*ボックス内の上に空ける余白。お好みで調整して下さい。*/
+	padding-bottom: 5vw;	/*ボックス内の下に空ける余白。お好みで調整して下さい。*/
+	margin-top: 10vw;		/*ボックス外の上に空ける余白。お好みで調整して下さい。*/
+	margin-bottom: 10vw;	/*ボックス外の下に空ける余白。お好みで調整して下さい。*/
+}
+.background6-parts a {
+	color: inherit;
+}
+
+/*以下のheightの行が傾斜の角度です。vwという単位は画面幅に対してで、画面幅100%＝100vwになります。
+つまり、画面幅に対して常に同じ傾斜具合になります。1pxの数字は時々隙間が発生するのでそれを防ぐ為の措置です。
+傾斜（height）を変更したい場合は、下にある「.background6-parts::before」のtopと「.background6-parts::after」のbottomの数字も変更。*/
+.background6-parts::before, .background6-parts::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: calc(5vw + 1px);
+	background: #eee;	/*背景色。上の.background6-partsのbackgroundと揃える。*/
+}
+
+.background6-parts::before {
+	top: -5vw;	/*上の、heightの「5vw」と数字を揃えて先頭にマイナスをつける*/
+	clip-path: polygon(0 100%, 100% 0, 100% 100%);	/*三角形の形を作っています*/
+}
+
+.background6-parts::after {
+	bottom: -5vw;	/*上の、heightの「5vw」と数字を揃えて先頭にマイナスをつける*/
+	clip-path: polygon(0 0, 100% 0, 0 100%);	/*三角形の形を作っています*/
+}
+
 </style>
 </head>
 
@@ -240,6 +278,16 @@ div.padding0 {
 <div id="contents">
 
 <main>
+<div class="background6-parts">
+
+<section>
+
+<h2>JPF LIVE -love&peace</h2>
+<h4>2025/09/28 & 2025/10/05</h4>
+
+</section>
+
+</div>
 
 <!--/#contents-->
 
